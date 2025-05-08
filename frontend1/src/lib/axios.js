@@ -1,10 +1,10 @@
 import axios from "axios";
 
 
-const URL=import.meta.env.VITE_APP_BACKEND_URL;
+
 console.log(URL);
 export const axiosInstance=axios.create({
-  baseURL: `${URL}/api`,
+  baseURL: import.meta.env.MODE === "development" ? "http://localhost:5001/api" : "/api",
   withCredentials: true,// send the cookies in every single request
   
 })
